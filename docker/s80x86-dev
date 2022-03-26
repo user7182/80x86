@@ -12,4 +12,5 @@ docker run -w $(pwd) \
     -e S80X86_DEV_USER=$(id -u -n) \
     -e S80X86_DEV_UID=$(id -u) \
     -e S80X86_DEV_GID=$(id -g) \
+    --ipc=host \
     s80x86-dev:latest $@
