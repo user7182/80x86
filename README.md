@@ -60,6 +60,12 @@ tests, a reference BIOS implementation and reference FPGA designs.
 This will build the Docker containers and then perform a release build and run
 all of the tests.
 
+### Build for DE0-CV
+
+    ./scripts/ci/fpga de0-cv
+
+This will build a Quartus project and SRAM Object File (.sof) for the Teerasic DE0-CV.
+
 ## Documentation
 
 The build script above will create a developer's guide in
