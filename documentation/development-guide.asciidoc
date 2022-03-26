@@ -28,7 +28,7 @@ and run all of the built-in tests.
 The s80x86 project uses Docker to provide convenient build environments.  This
 means that it is possible to build and test the design on any Linux system
 with Docker, regardless of distribution.  The Docker images used internally
-are all based on Ubuntu 16.04 LTS.
+are all based on Ubuntu 18.04 LTS.
 
 There are two primary build environments:
 
@@ -40,7 +40,7 @@ build it if not already built.  A 'ccache' cache is created in
 `_build/.ccache` that persists across container runs to increase build
 performance.
 
-'s80x86-build' is a minimal Ubuntu 16.04 LTS container with the dependencies for
+'s80x86-build' is a minimal Ubuntu 18.04 LTS container with the dependencies for
 building the project and running the tests.  This environment runs everything
 as the current user's uid/gid to preserve file permissions outside of the
 container and bind-mounts the project directory into `/build`.  The
