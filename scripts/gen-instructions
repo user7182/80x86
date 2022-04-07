@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 # Copyright Jamie Iles, 2017
 #
@@ -32,7 +32,7 @@ pystache.defaults.DELIMITERS = (u'<%', u'%>')
 pystache.defaults.TAG_ESCAPE = lambda u: u
 
 with open(os.path.join(HERE, '..', 'documentation', 'instructions.yaml')) as instr:
-    instructions = yaml.load(instr, Loader=yaml.FullLoader)
+    instructions = yaml.load(instr)
 
 def has_modrm(operands):
     return any(map(lambda x: x != 'ES' and x.startswith('E'), operands))
@@ -91,8 +91,7 @@ def immediate(operands, timing_operands):
 
         packed = struct.pack(struct_fmt, v)
         for b in packed:
-            assert type(b) == int
-            imm_bytes.append(b)
+            imm_bytes.append(ord(b))
     return imm_bytes
 
 def describe_operands(operands, timing_operands, E='memory'):
@@ -254,4 +253,4 @@ for mnemonic in sorted(instructions.keys()):
     definitions.append(idef)
 
 with open(INSTR_TEMPLATE) as template:
-    print(pystache.render(template.read(), { 'instructions': definitions }))
+    print pystache.render(template.read(), { 'instructions': definitions })
