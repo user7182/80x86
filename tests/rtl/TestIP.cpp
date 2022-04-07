@@ -43,7 +43,6 @@ void IPTestFixture::inc()
 
 uint16_t IPTestFixture::get()
 {
-    this->dut.eval();
     return this->dut.val;
 }
 
